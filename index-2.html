@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bí mật của Misa</title>
+  <!-- Đã loại bỏ âm nhạc -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/765/765375.png" type="image/png" />
+  <style>
+    body {
+      background: #ffe6f0 url('https://i.imgur.com/lNqukqL.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: #5a2d43;
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5rem;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 40px auto;
+      max-width: 800px;
+    }
+    .day-btn {
+      background-color: #fff3cd;
+      border: 2px solid #f7d774;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 1rem;
+      min-width: 120px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+    .day-btn.special {
+      background-color: #ffbbdd;
+      border-color: #ff4d88;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 0 12px #ff99c8;
+    }
+    .message-box {
+      margin-top: 30px;
+      background-color: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>📅 Bí mật của Misa 💖</h1>
+  <div class="container" id="days-container"></div>
+  <div class="message-box" id="message-box">Ấn vào từng ngày để xem lời nhắn nha vợ yêu 😘</div>
+
+  <script>
+    const messages = [
+      "05/07: Hôm nay cố lên nhé vợ Misa, ox luôn ở đây ủng hộ vợ! 💪💖",
+      "06/07: Nhớ vợ quá à, có gì thì tâm sự với ox nhaa 🥺",
+      "07/07: Misa là ánh sáng nhẹ nhàng trong lòng chồng 😘",
+      "08/07: Không cần hoàn hảo đâu, chỉ cần là vợ của ox là được 10 điểm rồi! 🥰",
+      "09/07: Cứ từ từ mà làm, ox hiểu và thương vợ nhiều lắm 💞",
+      "10/07: Ox lúc nào cũng ở phía sau ủng hộ vợ béo! 😘",
+      "11/07: Bxa là người đặc biệt nhất của ox mỗi ngày đó nha 💖",
+      "12/07: Có mệt thì nghỉ xíu, không sao hết đâu vợ à 😚",
+      "13/07: Misa là báu vật không ai thay thế được 🐻",
+      "14/07: Một cú gọi là ox xuất hiện liền! ☎️💓",
+      "15/07: Dù hôm nay ra sao, ox vẫn thương bxa như ngày đầu 🫶",
+      "16/07: Có buồn thì nói ox nghe, đừng giữ một mình nha 😢",
+      "17/07: Miễn vợ bình an là ox yên tâm rồi 🧸",
+      "18/07: Vợ làm được mà, ox tin vợ lắm luôn đó 😎",
+      "19/07: Nếu thấy quá tải, cứ dựa vào ox nhen 😌",
+      "20/07: Tâm sự với ox đi, đừng giữ trong lòng hí hí 💬",
+      "21/07: Vợ giỏi lắm rồi, đừng ép mình quá nhen 🐣",
+      "22/07: Vợ làm tốt hơn những gì vợ nghĩ đóoo 💘",
+      "23/07: Ox là hậu phương của vợ mọi lúc 🛡️",
+      "24/07: Có áp lực gì thì ox nghe hết, không phán xét 🫂",
+      "25/07: Vợ là người khiến ox cười mỗi ngày đó nha 🐰",
+      "26/07: 🎂 CHÚC MỪNG SINH NHẬT MISA 🎂 Vợ là món quà tuyệt vời nhất của cuộc đời chồng! Mong vợ luôn rạng rỡ, mạnh mẽ, và biết rằng chồng luôn yêu vợ hơn tất cả mọi thứ 💝",
+      "27/07: Ox không cần gì nhiều, chỉ cần vợ mỗi ngày 🥰",
+      "28/07: Vợ là lý do ox cố gắng hơn mỗi ngày 💕",
+      "29/07: Có Misa là có cả thế giới rồi 💫",
+      "30/07: Mỗi lần vợ cười, tim ox tan chảy áaaa 😆",
+      "31/07: Cảm ơn vợ vì đã đồng hành cùng chồng tháng này! Mãi iu 🥹💖",
+    ];
+
+    const container = document.getElementById("days-container");
+    const msgBox = document.getElementById("message-box");
+
+    for (let i = 5; i <= 31; i++) {
+      const btn = document.createElement("button");
+      btn.className = "day-btn" + (i === 26 ? " special" : "");
+      btn.innerText = (i < 10 ? "0" + i : i) + "/07/2025";
+      btn.onclick = () => msgBox.innerText = messages[i - 5];
+      container.appendChild(btn);
+    }
+  </script>
+</body>
+</html>
