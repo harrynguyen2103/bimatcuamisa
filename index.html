@@ -2,139 +2,141 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nhật ký yêu Mía 💌</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" />
+
   <style>
-    body {{
+    body {
       font-family: "Segoe UI", sans-serif;
       background-color: #ffe6f0;
-      color: #333;
-      text-align: center;
-      padding: 30px;
       background-image: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-attachment: fixed;
-    }}
-    h1 {{
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
       color: #d14d72;
       font-size: 2.5em;
       margin-bottom: 20px;
       text-shadow: 1px 1px 3px #fff;
-    }}
-    .day {{
-      margin: 8px;
-      padding: 12px 20px;
-      border: 2px solid #f7d774;
+    }
+
+    .day {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 22px;
       border-radius: 20px;
+      border: 2px solid #ff77a9;
       background-color: #fff8dc;
-      color: #a85b00;
       font-weight: bold;
+      color: #a85b00;
       cursor: pointer;
-      transition: 0.2s;
-      font-size: 1em;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }}
-    .day:hover {{
-      background-color: #fff3b0;
+      box-shadow: 2px 2px 5px #eeb;
+      transition: transform 0.2s;
+    }
+
+    .day:hover {
       transform: scale(1.05);
-    }}
-    .special-day {{
-      background-color: #ffe066 !important;
-      color: #b30059 !important;
-      border: 3px dashed #ff66a3 !important;
-      font-size: 1.15em;
-      box-shadow: 0 0 12px #ffb3cc;
-      animation: pulse 1.6s infinite;
-    }}
-    @keyframes pulse {{
-      0% {{ transform: scale(1); box-shadow: 0 0 12px #ffb3cc; }}
-      50% {{ transform: scale(1.05); box-shadow: 0 0 18px #ff4da6; }}
-      100% {{ transform: scale(1); box-shadow: 0 0 12px #ffb3cc; }}
-    }}
-    #message {{
+      background-color: #fff1c7;
+    }
+
+    .birthday {
+      background-color: #ffd3ec;
+      color: #c71585;
+      border: 2px dashed #ff69b4;
+      font-size: 1.1em;
+    }
+
+    #message {
       margin-top: 30px;
       font-size: 1.3em;
-      color: #4b004f;
-      min-height: 140px;
-      backdrop-filter: blur(4px);
-    }}
-    .footer {{
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #555;
-    }}
+      color: #4b004b;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+    }
   </style>
 </head>
 <body>
-  <h1>📅 Nhật ký yêu Mía 💘</h1>
+  <h1>💖 Nhật ký yêu thương của ox dành cho vợ Mía 💖</h1>
+
   <div id="days"></div>
-  <div id="message"></div>
-  <audio id="bgm" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/12/14/audio_3c2e33074e.mp3?filename=acoustic-romantic-139591.mp3" type="audio/mpeg">
-    Trình duyệt của bạn không hỗ trợ audio.
+  <div id="message">Chọn một ngày bất kỳ để xem lời nhắn nha vợ béo yêu 💌</div>
+
+  <audio autoplay loop hidden>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/11/audio_98ba036842.mp3" type="audio/mp3">
   </audio>
-  <div class="footer">— Từ chồng gửi Mía mỗi ngày 💌 —</div>
 
-<script>
-const startDate = new Date("2025-07-05");
-const endDate   = new Date("2025-07-31");
+  <script>
+    const startDate = new Date("2025-07-05");
+    const endDate = new Date("2025-07-31");
+    const messages = [
+      "Hôm nay cố thêm chút nữa nha bxa, có ox ủng hộ hết mình á!",
+      "Vợ Mía ơi, có chuyện gì cứ nói với ông xã nha.",
+      "Vợ là người mạnh mẽ và dễ thương nhất luôn đó.",
+      "Không cần hoàn hảo, chỉ cần là vợ của ox là được 10 điểm.",
+      "Thả lỏng, thở đều, làm từ từ, chồng luôn hiểu và thương.",
+      "Có ox ở đây, vợ không cần phải gồng lên đâu nhe.",
+      "Ox tự hào về vợ từng ngày luôn đó á.",
+      "Nếu hôm nay mệt thì mình nghỉ chút cũng không sao hết vợ béo ơi.",
+      "Vợ béo của ox là báu vật vô giá, ox giữ kỹ lắm luôn á.",
+      "Lúc nào vợ cần, ox luôn ở đây, chỉ cần kêu 1 tiếng thui.",
+      "Dù hôm nay ra sao, bxa vẫn tuyệt nhất trong mắt chồng!",
+      "Nghỉ ngơi xíu rồi mai mình làm tiếp nha, không sao hết.",
+      "Có ngày buồn cũng bình thường, ox vẫn thương vợ như thường.",
+      "Chỉ cần vợ bình an, là ox yên lòng rồi á.",
+      "Ox tin là vợ sẽ vượt qua hết, vợ là siêu nhân của ox!",
+      "Nếu vợ thấy mệt, tựa vô ox nè ><",
+      "Tâm sự với ox nha, bxa đừng để trong lòng 1 mình.",
+      "Vợ đã cố gắng nhiều lắm rồi, đừng ép mình quá.",
+      "Vợ giỏi hơn vợ nghĩ nhiều lắm luôn đó.",
+      "Vợ không bao giờ một mình, ox luôn là hậu phương nè!",
+      "Nếu vợ áp lực, ox lắng nghe hết, không phán xét.",
+      "Vợ là ánh sáng của cuộc đời chồng, mỗi ngày luôn đó.",
+      "Có thể em chưa thấy, nhưng ox thấy vợ tiến bộ lắm.",
+      "Ox thấy được sự cố gắng mỗi ngày, thương vợ nhiều hơn.",
+      "Nếu muốn trốn cả thế giới, trốn vô lòng ox nè hí hí.",
+      "🎉 Chúc mừng sinh nhật bé Mía yêu nhất trần giannnnnnn 🎂🎈 – Ox thương vợ vô hạn 🥰🥰",
+      "Ox không hứa làm hết, nhưng hứa luôn bên vợ!",
+      "Vợ luôn tuyệt vời trong mắt ox, mặc kệ thiên hạ!",
+      "Bé Mía là lý do ox cố gắng mỗi ngày áaa.",
+      "Ngày mai chưa biết sao, nhưng có vợ hôm nay là đủ rồi hehe.",
+      "Mỗi lần vợ cười, thế giới của ox sáng bừng luôn 😘"
+    ];
 
-// Danh sách lời nhắn (ngoại trừ sinh nhật)
-const messages = [
-  "Hôm nay cố gắng thêm chút nữa nha bxa, có chồng ở đây ủng hộ vợ hehe, chồng biết vợ mệt nhắm huhu.",
-  "Vợ Mía ơiii , có chuyện gì thì nói với oxa, vợ đừng ôm một mình nha.",
-  "Vợ của ox là người mạnh mẽ và dễ thương nhất luôn aaaaa hêhhehehehehe.",
-  "Ko cần hoàn hảo đâu, chỉ cần là vợ của chồng là 10đ hí hí.",
-  "Cứ thở đều, thả lỏng, làm từ từ thôi, chồng hiểu mà.",
-  "Có chồng ở đây, nên em không cần phải gồng lên một mình đâu.",
-  "Ox tự hào về vợ lắm, mỗi ngày luôn là ntheeee.",
-  "Bxa yêu nếu hôm nay mệt, mình nghỉ một chút cũng được mà vợ nhọoooo.",
-  "Vợ béo của chồng là báu vật, không ai thay thế được.",
-  "Oxaaaa luôn ở đây, lúc nào vợ cần chỉ cần gọi 1 cú thôi.",
-  "Dù hôm nay ra sao, bxa vẫn là người tuyệt nhất với chồng hehee.",
-  "Nghỉ ngơi xíu đi nha vợ, mai mình làm tiếp cũng đượccccc hí hí.",
-  "Có những ngày buồn là bình thường, chồng vẫn thương vợ như ko bao giờ phai.",
-  "Oxa không cần gì nhiều, chỉ cần bxa bình an là chồng an tâm gòi.",
-  "Ox tin là vợ sẽ vượt qua dễ dànggg, cv khó chút một cũng ngon hehe.",
-  "Nếu vợ Mía cảm thấy quá tải, cứ tựa vào ox vợ nhéeeeeee ><",
-  "Hôm nay có thể mệt, nhưng có ox đây gòiiii nha, bxa tâm sự với ck hehe.",
-  "Bxa làm tốt lắm rồi, đừng ép mình quá nữa nha vợ.",
-  "Ox chỉ muốn nói là: vợ đã giỏi hơn vợ nghĩ rất nhiều.",
-  "Bxa ko một mình đâu, ox luôn là hậu phương vững chắc cùa vợ keke.",
-  "Nếu bxa thấy áp lực, ox sẵn sàng nghe hết, không phán xét.",
-  "Vợ là ánh sáng nhỏ của ck mỗi ngày.",
-  "Có thể em chưa thấy, nhưng ox thấy vợ tiến bộ từng chút đó.",
-  "Anh biết em cố gắng nhiều, nên ox thương vợ hơn từng ngày.",
-  "Ox đây neee, lúc vợ muốn trốn khỏi thế giới, trốn vô lòng chồng nha hí hí.",
-  "Ox không hứa làm hết, nhưng hứa luôn bên cạnh vợ.",
-  "Dù ai nói gì, bxa vẫn là người tuyệt nhất trong mắt chồng.",
-  "Vợ béo là lý do để ox cố gắng mỗi ngày đó hehe.",
-  "Ngày mai thế nào chưa biết, nhưng hôm nay có vợ yêu là đủ rồi hehe.",
-  "Mỗi lần vợ cười, ox thấy thế giới nhẹ hơn chút kkk."
-];
+    const daysContainer = document.getElementById("days");
+    const messageBox = document.getElementById("message");
+    let index = 0;
 
-// Lời nhắn sinh nhật 26/7
-const birthdayMsg = "🎂 Sinh nhật vợ yêu! Cảm ơn em vì đã có mặt trên đời, làm vợ chồng là điều may mắn nhất của anh. Chúc vợ béo tuổi mới thật vui, thật khỏe và luôn biết là có chồng yêu em rất nhiều! 💗🎈";
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+      const dayDiv = document.createElement("div");
+      const displayDate = `${d.getDate().toString().padStart(2, '0')}/${
+        (d.getMonth() + 1).toString().padStart(2, '0')
+      }/${d.getFullYear()}`;
 
-const daysDiv = document.getElementById("days");
-const msgDiv  = document.getElementById("message");
+      dayDiv.className = "day";
+      if (displayDate === "26/07/2025") {
+        dayDiv.classList.add("birthday");
+        dayDiv.innerText = `🎂 ${displayDate}`;
+      } else {
+        dayDiv.innerText = `📅 ${displayDate}`;
+      }
 
-let msgIndex = 0;
+      const msg = messages[index] || "Ox chưa viết lời nào ngày này, nhưng ox vẫn thương vợ lắm 🥺";
+      dayDiv.onclick = () => {
+        messageBox.innerText = msg;
+      };
 
-for(let d = new Date(startDate); d <= endDate; d.setDate(d.getDate()+1)) {{
-  const isSpecial = d.getDate() === 26 && d.getMonth() === 6; // 26 July
-  const btn = document.createElement("button");
-  btn.className = isSpecial ? "day special-day" : "day";
-  btn.textContent = `📅 ${d.toLocaleDateString("vi-VN")}`;
-  const msg = isSpecial ? birthdayMsg : messages[msgIndex % messages.length];
-  if(!isSpecial) msgIndex++;
-  btn.onclick = () => {{
-    msgDiv.innerText = msg;
-  }};
-  daysDiv.appendChild(btn);
-}}
-</script>
+      daysContainer.appendChild(dayDiv);
+      index++;
+    }
+  </script>
 </body>
 </html>
+
